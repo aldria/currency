@@ -1,7 +1,7 @@
 {
 	"name": "aldria/currency",
 	"description": "currency helper",
-	"keywords": ["nette", , "currency helper"],
+	"keywords": ["nette", "currency helper"],
 	"license": "New BSD",
 
 	"authors": [
