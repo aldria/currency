@@ -1,0 +1,28 @@
+{
+	"name": "aldria/currency",
+	"description": "currency helper",
+	"keywords": ["nette", , "currency helper"],
+	"license": "New BSD",
+
+	"authors": [
+		{
+			"name": "Milan Dušek",
+			"email": "milan.dusek@pragocomp.cz"
+		}
+	],
+
+	"require": {
+		"php": ">=5.3.1",
+		"nette/nette": "~2.2"
+	},
+
+	"require-dev": {
+		"nette/tester": "~1.3"
+	},
+
+	"autoload": {
+		"psr-0": {
+			"aldria\\currency": "src/"
+		}
+	}
+}
