@@ -11,14 +11,12 @@ class Extension extends CompilerExtension
 	private function getDefaultConfig()
 	{
 		return [
-			'price' => [
-				'currency' => 'Kč',
-				'decimals' => 2,
-				'decimalPoint' => ',',
-				'thousandsSep' => ' ',
-				'priceFormat' => '{price} {currency}',
-				'filterName' => 'price',
-			],
+			'currency' => 'Kč',
+			'decimals' => 2,
+			'decimalPoint' => ',',
+			'thousandsSep' => ' ',
+			'priceFormat' => '{price} {currency}',
+			'filterName' => 'price',
 		];
 	}
 
@@ -28,19 +26,18 @@ class Extension extends CompilerExtension
 		$config = $this->getConfig($this->getDefaultConfig());
 		$builder = $this->getContainerBuilder();
 
-		$priceConfig = $config['price'];
 		$builder->addDefinition($this->prefix('currencyHelper'))
 			->setClass('aldria\currency\CurrencyHelper', [
-				'currency' => $priceConfig['currency'],
-				'decimals' => $priceConfig['decimals'],
-				'decimalPoint' => $priceConfig['decimalPoint'],
-				'thousandsSep' => $priceConfig['thousandsSep'],
-				'priceFormat' => $priceConfig['priceFormat'],
+				'currency' => $config['currency'],
+				'decimals' => $config['decimals'],
+				'decimalPoint' => $config['decimalPoint'],
+				'thousandsSep' => $config['thousandsSep'],
+				'priceFormat' => $config['priceFormat'],
 			]);
 
 		if ($builder->hasDefinition('nette.latteFactory')) {
 			$definition = $builder->getDefinition('nette.latteFactory');
-			$definition->addSetup('addFilter', array($config['price']['filterName'], array($this->prefix('@currencyHelper'), 'format')));
+			$definition->addSetup('addFilter', array($config['filterName'], array($this->prefix('@currencyHelper'), 'format')));
 		}
 	}
 
