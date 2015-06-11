@@ -36,9 +36,9 @@ class CurrencyHelper extends Nette\Object {
         $this->priceFormat = $priceFormat;
     }
 
-    public function format($price, $currency = NULL, $decimals = NULL, $decimaPoint = NULL, $thousandsSep = NULL, $priceFormat = NULL) {
+    public function format($price, $currency = NULL, $decimals = NULL, $decimaMark = NULL, $thousandsSep = NULL, $priceFormat = NULL) {
         $price = number_format($price, $decimals?$decimals:$this->decimals, 
-                $decimaPoint?$decimaPoint:$this->decimalMark, $thousandsSep?$thousandsSep:$this->thousandsSep);
+                $decimaMark?$decimaMark:$this->decimalMark, $thousandsSep?$thousandsSep:$this->thousandsSep);
         $search = array('{price}', '{currency}', ' ');
         $replace = array($price, $currency?$currency:$this->currency, "\xc2\xa0");
         return str_replace($search, $replace, $priceFormat?$priceFormat:$this->priceFormat);

@@ -11,7 +11,7 @@ class Extension extends CompilerExtension {
         return [
             'currency' => 'Kč',
             'decimals' => 2,
-            'decimalPoint' => ',',
+            'decimalMark' => ',',
             'thousandsSep' => ' ',
             'priceFormat' => '{price} {currency}',
             'filterName' => 'price',
@@ -26,7 +26,7 @@ class Extension extends CompilerExtension {
                 ->setClass('aldria\currency\CurrencyHelper', [
                     'currency' => $config['currency'],
                     'decimals' => $config['decimals'],
-                    'decimalPoint' => $config['decimalPoint'],
+                    'decimalMark' => $config['decimalMark'],
                     'thousandsSep' => $config['thousandsSep'],
                     'priceFormat' => $config['priceFormat'],
         ]);
