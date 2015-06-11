@@ -30,7 +30,7 @@ class Extension extends CompilerExtension
 
 		$priceConfig = $config['price'];
 		$builder->addDefinition($this->prefix('currencyHelper'))
-			->setClass('aldria\currency\currencyHelper', [
+			->setClass('aldria\currency\CurrencyHelper', [
 				'currency' => $priceConfig['currency'],
 				'decimals' => $priceConfig['decimals'],
 				'decimalPoint' => $priceConfig['decimalPoint'],
