@@ -31,7 +31,7 @@ class CurrencyHelper extends Nette\Object
 	private $priceFormat;
 
 
-	function __construct($currency = '€', $decimals = 2,  $decimalPoint = ',', $thousandsSep = ' ', $priceFormat = '{price} {currency}')
+	function __construct($currency = 'Kč', $decimals = 2,  $decimalPoint = ',', $thousandsSep = ' ', $priceFormat = '{price} {currency}')
 	{
 		$this->currency = $currency;
 		$this->decimals = $decimals;
